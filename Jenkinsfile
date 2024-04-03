@@ -25,7 +25,7 @@ pipeline {
                 """
             }
         }
-        stage('Push the image to the DockerHub') {
+        stage('Release the image to the DockerHub') {
             steps {
                 sh """
                 docker tag ${DOCKER_IMAGE_NAME} ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}
@@ -33,9 +33,9 @@ pipeline {
                 """
             }
         }
-        stage('Dep') {
+        stage('Ping the ansible hosts') {
             steps {
-                echo 'Deploying....'
+                sh "ansible-playbook ansible_playbook --tags ping-hosts"
             }
         }
         stage('Deploy') {
