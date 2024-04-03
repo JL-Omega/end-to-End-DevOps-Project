@@ -1,0 +1,6 @@
+ansible_user: vagrant
+ansible_password: vagrant
+ansible_become: true
+ansible_become_password: vagrant
+ansible_python_interpreter: /usr/bin/python3
+# K8S_AUTH_KUBECONFIG: ~/.kube/config

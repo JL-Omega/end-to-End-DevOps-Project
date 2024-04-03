@@ -1,0 +1,42 @@
+---
+# tasks file for odoo-deployment
+
+- name: Create the odoo-deployment
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: odoo-deployment
+        namespace: default
+        labels:
+          app: odoo
+      spec:
+        selector:
+          matchLabels:
+            app: odoo
+        template:
+          metadata:
+            labels:
+              app: odoo
+          spec:
+            containers:
+            - name: odoo
+              image: odoo:16.0
+              env:
+                - name: HOST
+                  value: postgres-service
+                - name: USER
+                  value: odoo
+                - name: PASSWORD
+                  value: myodoo
+              resources:
+                limits:
+                  memory: "256Mi"
+                  cpu: "500m"
+              ports:
+              - containerPort: 8069
+  tags:
+    - odoo-deployment
+  

@@ -1,0 +1,7 @@
+---
+# tasks file for Ping-hosts
+
+- name: Ping hosts
+  ansible.builtin.ping:
+  tags:
+    - ping-hosts

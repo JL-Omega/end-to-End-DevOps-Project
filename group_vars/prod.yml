@@ -1,0 +1,5 @@
+ansible_user: cheche
+ansible_password: 1991
+ansible_become: true
+ansible_become_password: 1991
+# K8S_AUTH_KUBECONFIG: /home/jean-luc/end-to-End-DevOps-Project/files/k8s-authentification/kube-config.yml

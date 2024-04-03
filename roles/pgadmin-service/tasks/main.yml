@@ -1,0 +1,22 @@
+---
+# tasks file for pgadmin-service
+
+- name: Create the pgadmin-service
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: pgadmin-service
+        namespace: default
+      spec:
+        type: ClusterIP
+        selector:
+          app: pgadmin
+        ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 80
+  tags: 
+    - pgadmin-service

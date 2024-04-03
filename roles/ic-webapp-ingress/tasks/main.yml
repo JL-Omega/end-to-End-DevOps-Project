@@ -1,0 +1,51 @@
+---
+# tasks file for ic-webapp-ingress
+
+- name: Create the ic-webapp-ingress
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: ic-webapp-ingress
+        namespace: default
+        labels:
+          name: myingress
+        annotations:
+          nginx.ingress.kubernetes.io/rewrite-target: /
+      spec:
+        ingressClassName: nginx
+        rules:
+        - host: ic-group.fr
+          http:
+            paths:
+            - pathType: Prefix
+              path: "/"
+              backend:
+                service:
+                  name: ic-webapp-service
+                  port: 
+                    number: 8080
+        - host: ic-group-odoo.fr
+          http:
+            paths:
+            - pathType: Prefix
+              path: "/"
+              backend:
+                service:
+                  name: odoo-service
+                  port: 
+                    number: 8069
+        - host: ic-group-pgadmin.fr
+          http:
+            paths:
+            - pathType: Prefix
+              path: "/"
+              backend:
+                service:
+                  name: pgadmin-service
+                  port: 
+                    number: 80
+  tags: 
+    - ic-webapp-ingress

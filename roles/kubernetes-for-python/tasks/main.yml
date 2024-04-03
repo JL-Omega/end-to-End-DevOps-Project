@@ -1,0 +1,10 @@
+---
+# tasks file for kubernetes-for-python
+
+- name: Install kubernetes for python
+  ansible.builtin.pip:
+    name: kubernetes
+    state: present
+    # executable: pip3.6
+  tags:
+    - kubernetes-for-python

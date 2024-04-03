@@ -1,0 +1,23 @@
+---
+# tasks file for odoo-service
+
+- name: Create the odoo-service
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: odoo-service
+        namespace: default
+      spec:
+        type: ClusterIP
+        selector:
+          app: odoo
+        ports:
+        - protocol: TCP
+          port: 8069
+          targetPort: 8069
+  tags:
+    - odoo-service
+      

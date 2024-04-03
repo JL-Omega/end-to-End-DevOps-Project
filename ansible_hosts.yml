@@ -1,0 +1,10 @@
+all:
+dev:
+  hosts:
+    Jean-Luc:
+      ansible_host: 192.168.99.10
+prod:
+  hosts:
+    Cheche:
+      ansible_host: 192.168.99.15
+    

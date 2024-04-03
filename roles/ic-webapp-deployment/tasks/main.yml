@@ -1,0 +1,40 @@
+---
+# tasks file for ic-webapp-deployment
+
+- name: Create the ic-webapp-deployment
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: ic-webapp-deployment
+        namespace: default
+        labels:
+          app: ic-webapp
+      spec:
+        selector:
+          matchLabels:
+            app: ic-webapp
+        template:
+          metadata:
+            labels:
+              app: ic-webapp
+          spec:
+            containers:
+            - name: ic-webapp
+              image: jlmpande/ic-webapp:1.0.0
+              env:
+                - name: ODOO_URL
+                  value: http://ic-group-odoo.fr
+                - name: PGADMIN_URL
+                  value: http://ic-group-pgadmin.fr
+              resources:
+                limits:
+                  memory: "128Mi"
+                  cpu: "500m"
+              ports:
+              - containerPort: 8080
+  tags:
+    - ic-webapp-deployment
+        

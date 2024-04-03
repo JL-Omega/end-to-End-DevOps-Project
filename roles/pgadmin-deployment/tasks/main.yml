@@ -1,0 +1,40 @@
+---
+# tasks file for pgadmin-deployment
+
+- name: Create the pgadmin-deployment
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: pgadmin-deployment
+        namespace: default
+        labels:
+          app: pgadmin
+      spec:
+        selector:
+          matchLabels:
+            app: pgadmin
+        template:
+          metadata:
+            labels:
+              app: pgadmin
+          spec:
+            containers:
+            - name: pgadmin
+              image: dpage/pgadmin4
+              env:
+                - name: PGADMIN_DEFAULT_EMAIL
+                  value: "mpandejl1@gmail.com"
+                - name: PGADMIN_DEFAULT_PASSWORD
+                  value: "1234"
+              resources:
+                limits:
+                  memory: "256Mi"
+                  cpu: "500m"
+              ports:
+              - containerPort: 80
+      
+  tags: 
+    - pgadmin-deployment

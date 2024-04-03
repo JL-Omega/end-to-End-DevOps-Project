@@ -1,0 +1,22 @@
+---
+# tasks file for postgres-service
+
+- name: Create the postgres-service
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: postgres-service
+        namespace: default
+      spec:
+        type: ClusterIP
+        selector:
+          app: postgres
+        ports:
+        - protocol: TCP
+          port: 5432
+          targetPort: 5432
+  tags: 
+    - postgres-service

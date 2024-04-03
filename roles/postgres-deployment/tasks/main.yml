@@ -1,0 +1,42 @@
+---
+# tasks file for postgres-deployment
+
+- name: Create the postgres-deployment
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: postgres-deployment
+        namespace: default
+        labels:
+          app: postgres
+      spec:
+        selector:
+          matchLabels:
+            app: postgres
+        template:
+          metadata:
+            labels:
+              app: postgres
+          spec:
+            containers:
+            - name: postgres
+              image: postgres:15
+              env:
+                - name: POSTGRES_DB
+                  value: postgres
+                - name: POSTGRES_PASSWORD
+                  value: myodoo
+                - name: POSTGRES_USER
+                  value: odoo
+              resources:
+                limits:
+                  memory: "512Mi"
+                  cpu: "500m"
+              ports:
+              - containerPort: 5432
+  tags: 
+    - postgres-deployment
+      

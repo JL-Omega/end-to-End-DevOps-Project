@@ -1,0 +1,13 @@
+---
+# tasks file for ic-group-namespace
+
+  - name: Create the ic-group-webapp namespace
+    kubernetes.core.k8s:
+      state: present
+      definition:
+        apiVersion: v1
+        kind: Namespace
+        metadata:
+          name: ic-group-webapp
+    tags:
+      - ic-group-namespace
