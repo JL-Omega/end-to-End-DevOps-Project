@@ -12,12 +12,30 @@ pipeline {
 
         stage('Build the IC-GROUP webapp image') {
             steps {
-                echo 'Building..'
+                sh "docker build -t ${DOCKER_IMAGE_NAME} ."
             }
         }
-        stage('Test') {
+        stage('Test the IC-GROUP webapp image') {
             steps {
-                echo 'Testing..'
+                sh """
+                docker rm -f ${IMAGE_NAME} || true
+                docker run --name ${IMAGE_NAME} -d -p 8082:8080 ${DOCKER_IMAGE_NAME}
+                sleep 5
+                curl http://localhost:8082 | grep -i 'ic group'
+                """
+            }
+        }
+        stage('Push the image to the DockerHub') {
+            steps {
+                sh """
+                docker tag ${DOCKER_IMAGE_NAME} ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}
+                docker push ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}
+                """
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
         stage('Deploy') {
