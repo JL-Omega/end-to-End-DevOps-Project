@@ -6,7 +6,7 @@
     - ping-hosts
     - install-packages
     - kubernetes-for-python
-     - ic-group-namespace
+    - ic-group-namespace
     - ic-webapp-ingress
     - postgres-service
     - odoo-service
