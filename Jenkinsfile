@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Ping the ansible hosts') {
             steps {
-                sh "ansible-playbook ansible_playbook --tags ping-hosts"
+                sh "ansible-playbook ansible_playbook.yml --tags ping-hosts"
             }
         }
         stage('Deploy') {
