@@ -48,5 +48,10 @@ pipeline {
                 sh "ansible-playbook ansible_playbook.yml --tags kubernetes-for-python"
             }
         }
+        stage('Create the IC-GROUP webapp namespace') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags ic-group-namespace"
+            }
+        }
     }
 }
