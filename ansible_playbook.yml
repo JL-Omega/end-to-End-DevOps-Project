@@ -6,17 +6,17 @@
     - ping-hosts
     - install-packages
     - kubernetes-for-python
-    #  - ic-group-namespace
-    # - ic-webapp-ingress
-    # - postgres-service
-    # - odoo-service
-    # - pgadmin-service
-    # - ic-webapp-service
-    # - postgres-deployment
-    # - pgadmin-deployment
-    # - ic-webapp-deployment
-    # - odoo-deployment
-    # - ip_address_pool
+     - ic-group-namespace
+    - ic-webapp-ingress
+    - postgres-service
+    - odoo-service
+    - pgadmin-service
+    - ic-webapp-service
+    - postgres-deployment
+    - pgadmin-deployment
+    - ic-webapp-deployment
+    - odoo-deployment
+    - ip_address_pool
 
     
     

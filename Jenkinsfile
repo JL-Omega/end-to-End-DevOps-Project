@@ -53,5 +53,55 @@ pipeline {
                 sh "ansible-playbook ansible_playbook.yml --tags ic-group-namespace"
             }
         }
+        stage('Create the IC-GROUP ingress') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags ic-webapp-ingress"
+            }
+        }
+        stage('Create the postgres service') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags postgres-service"
+            }
+        }
+        stage('Create the odoo service') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags odoo-service"
+            }
+        }
+        stage('Create the pgadmin service') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags pgadmin-service"
+            }
+        }
+        stage('Create the ic-webapp service') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags ic-webapp-service"
+            }
+        }
+        stage('Create the postgres deployment') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags postgres-deployment"
+            }
+        }
+        stage('Create the pgadmin deployment') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags pgadmin-deployment"
+            }
+        }
+        stage('Create the ic webapp deployment') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags ic-webapp-deployment"
+            }
+        }
+        stage('Create the odoo deployment') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags odoo-deployment"
+            }
+        }
+        // stage('') {
+        //     steps {
+        //         sh "ansible-playbook ansible_playbook.yml --tags"
+        //     }
+        // }
     }
 }
