@@ -4,7 +4,7 @@
 
   roles:
     - ping-hosts
-    # - install-packages
+    - install-packages
     # - kubernetes-for-python
     #  - ic-group-namespace
     # - ic-webapp-ingress
