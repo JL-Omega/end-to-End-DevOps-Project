@@ -43,5 +43,10 @@ pipeline {
                 sh "ansible-playbook ansible_playbook.yml --tags install-packages"
             }
         }
+        stage('Install kubernetes for python') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags kubernetes-for-python"
+            }
+        }
     }
 }
