@@ -33,7 +33,7 @@ pipeline {
                 """
             }
         }
-        stage('Deploy') {
+        stage('Dep') {
             steps {
                 echo 'Deploying....'
             }
