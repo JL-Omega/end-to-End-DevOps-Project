@@ -17,9 +17,9 @@ pipeline {
                 ok "Confirm"
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to false to run the stage')}
             }
-            // when {
-            //     expression { "${SKIP_STAGE}" == false } 
-            // }
+            when {
+                expression { ${SKIP_STAGE} == false } 
+            }
             steps {
                 echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
                 // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
