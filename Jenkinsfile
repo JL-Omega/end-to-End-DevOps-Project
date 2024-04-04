@@ -24,7 +24,7 @@ pipeline {
             // }
             steps {
                 echo "Value of SKIP-STAGE: ${params.SKIP-STAGE}"
-                sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
+                // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
         }
 
