@@ -14,18 +14,19 @@ pipeline {
     stages {
 
         stage('Create the ip_address_pool') {
-            input {
-                message "Should we skip the stage?"
-                ok "Confirm"
-                // submitter "alice,bob"
-                parameters {
-                    booleanParam(name: 'SKIP_STAGE', defaultValue: false, description: 'Set to yes to skip the stage')
-                }
-            }
+            // input {
+            //     message "Should we skip the stage?"
+            //     ok "Confirm"
+            //     // submitter "alice,bob"
+            //     parameters {
+            //         booleanParam(name: 'SKIP_STAGE', defaultValue: false, description: 'Set to yes to skip the stage')
+            //     }
+            // }
             // when {
             //     expression { return params.SKIP_STAGE == null } 
             // }
             steps {
+                input message: "Should we skip the stage?", ok: "Confirm"
                 echo "Value of SKIP_STAGE: ${params.SKIP_STAGE}"
                 // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
