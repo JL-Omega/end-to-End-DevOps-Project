@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             when {
-                expression { return params.SKIP-STAGE != "yes" } 
+                expression { return params.SKIP-STAGE == null } 
             }
             steps {
                 echo "Value of SKIP_STAGE: ${params.SKIP_STAGE}"
