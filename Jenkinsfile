@@ -16,11 +16,11 @@ pipeline {
                 ok "Yes, we should."
                 // submitter "alice,bob"
                 parameters {
-                    string(name: 'SKIP_STAGE', defaultValue: 'yes', description: 'Set to yes to skip the stage')
+                    booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to yes to skip the stage')
                 }
             }
             when {
-                expression { return params.SKIP_STAGE == null } 
+                expression { return params.SKIP_STAGE == true } 
             }
             steps {
                 echo "Value of SKIP_STAGE: ${params.SKIP_STAGE}"
