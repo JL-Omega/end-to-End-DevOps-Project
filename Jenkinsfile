@@ -18,8 +18,8 @@ pipeline {
             }
             steps {
                 input {
-                    message "Should we skip the stage?"
-                    ok "Confirm"
+                    message("Should we skip the stage?")
+                    ok("Confirm")
                     parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: false, description: 'Set to false to run the stage')}
                 }
                 script {
