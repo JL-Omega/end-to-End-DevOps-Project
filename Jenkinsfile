@@ -19,7 +19,10 @@ pipeline {
             }
             
             steps {
-                if(SKIP_STAGE){echo "Value of SKIP_STAGE = ${SKIP_STAGE}"}
+                script{
+                    if(SKIP_STAGE){echo "Value of SKIP_STAGE = ${SKIP_STAGE}"}
+                }
+                
                 
                 // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
