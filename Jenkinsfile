@@ -16,7 +16,7 @@ pipeline {
                 ok "Yes, we should."
                 // submitter "alice,bob"
                 parameters {
-                    string(name: 'SKIP_STAGE', defaultValue: "yes", description: 'Set to yes to skip the stage')
+                    string(name: 'SKIP_STAGE', defaultValue: 'yes', description: 'Set to yes to skip the stage')
                 }
             }
             // when {
