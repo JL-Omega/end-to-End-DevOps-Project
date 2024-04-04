@@ -10,7 +10,7 @@ pipeline {
 
     stages {
 
-         stage('Create the ip_address_pool') {
+        stage('Create the ip_address_pool') {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
