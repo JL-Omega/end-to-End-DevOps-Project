@@ -31,5 +31,5 @@
         ipAddressPools:
         - default
   tags: 
-    - metallb
+    - ip_address_pool
  

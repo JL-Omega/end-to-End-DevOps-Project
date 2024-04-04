@@ -10,6 +10,16 @@ pipeline {
 
     stages {
 
+         stage('Create the ip_address_pool') {
+            input {
+                message "Should we continue?"
+                ok "y"
+            }
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
+            }
+        }
+
         stage('Build the IC-GROUP webapp image') {
             steps {
                 sh "docker build -t ${DOCKER_IMAGE_NAME} ."
@@ -98,10 +108,6 @@ pipeline {
                 sh "ansible-playbook ansible_playbook.yml --tags odoo-deployment"
             }
         }
-        // stage('') {
-        //     steps {
-        //         sh "ansible-playbook ansible_playbook.yml --tags"
-        //     }
-        // }
+       
     }
 }
