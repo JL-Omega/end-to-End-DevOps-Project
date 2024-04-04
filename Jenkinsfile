@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             when {
-                expression { return params.SKIP-STAGE = true } 
+                expression { return params.SKIP-STAGE == true } 
             }
             steps {
                 sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
