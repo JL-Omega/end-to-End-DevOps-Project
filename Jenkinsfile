@@ -20,7 +20,7 @@ pipeline {
             
             steps {
                 script{
-                    if(SKIP_STAGE == false){echo "Value of SKIP_STAGE = ${SKIP_STAGE}"}
+                    if(SKIP_STAGE){echo "Value of SKIP_STAGE = ${SKIP_STAGE}"}
                 }
                 
                 
