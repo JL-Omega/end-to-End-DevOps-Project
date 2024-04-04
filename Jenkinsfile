@@ -28,6 +28,7 @@ pipeline {
 
         stage('Build the IC-GROUP webapp image') {
             steps {
+                echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
                 sh "docker build -t ${DOCKER_IMAGE_NAME} ."
             }
         }
