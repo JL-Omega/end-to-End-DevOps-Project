@@ -12,15 +12,16 @@ pipeline {
     stages {
 
         stage('Create the ip_address_pool') {
-            input {
+
+             when {
+                expression { params.SKIP_STAGE == false} 
+            }
+            steps {
+                input {
                 message "Should we skip the stage?"
                 ok "Confirm"
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: false, description: 'Set to false to run the stage')}
-            }
-            when {
-                expression { return params.SKIP_STAGE == false} 
-            }
-            steps {
+                }
                 echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
                 // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
