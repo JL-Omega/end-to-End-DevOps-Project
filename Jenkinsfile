@@ -16,11 +16,11 @@ pipeline {
                 ok "Yes, we should."
                 // submitter "alice,bob"
                 parameters {
-                    string(name: 'SKIP-STAGE', defaultValue: true, description: 'Set to false to skip the stage')
+                    string(name: 'SKIP-STAGE', defaultValue: "yes", description: 'Set to yes to skip the stage')
                 }
             }
             when {
-                expression { return params.SKIP-STAGE == true } 
+                expression { return params.SKIP-STAGE == "yes" } 
             }
             steps {
                 sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
