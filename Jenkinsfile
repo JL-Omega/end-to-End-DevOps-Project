@@ -19,9 +19,9 @@ pipeline {
                     string(name: 'SKIP-STAGE', defaultValue: "yes", description: 'Set to yes to skip the stage')
                 }
             }
-            when {
-                expression { params.SKIP-STAGE != "yes" } 
-            }
+            // when {
+            //     expression { params.SKIP-STAGE != "yes" } 
+            // }
             steps {
                 sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
