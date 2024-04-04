@@ -18,9 +18,9 @@ pipeline {
                 message "Should we skip the stage?"
                 ok "Confirm"
                 // submitter "alice,bob"
-                // parameters {
-                //     booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to yes to skip the stage')
-                // }
+                parameters {
+                    booleanParam(name: 'SKIP_STAGE', defaultValue: false, description: 'Set to yes to skip the stage')
+                }
             }
             // when {
             //     expression { return params.SKIP_STAGE == null } 
