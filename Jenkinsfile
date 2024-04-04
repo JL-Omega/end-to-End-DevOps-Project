@@ -12,7 +12,7 @@ pipeline {
 
         stage('Create the ip_address_pool') {
             input {
-                message "Should we continue?"
+                message "Should we skip the stage?"
                 ok "Yes, we should."
                 // submitter "alice,bob"
                 parameters {
@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             when {
-                expression { params.SKIP-STAGE == "yes" } 
+                expression { params.SKIP-STAGE != "yes" } 
             }
             steps {
                 sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
