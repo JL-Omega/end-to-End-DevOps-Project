@@ -18,18 +18,17 @@ pipeline {
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to false to run the stage')}
             }
             when {
-                expression { SKIP_STAGE == false } 
+                expression { "${SKIP_STAGE}" == false } 
             }
             steps {
                 echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
-                // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
+                sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
         }
 
         stage('Build the IC-GROUP webapp image') {
             steps {
-                echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
-                // sh "docker build -t ${DOCKER_IMAGE_NAME} ."
+                sh "docker build -t ${DOCKER_IMAGE_NAME} ."
             }
         }
         // stage('Test the IC-GROUP webapp image') {
