@@ -18,7 +18,7 @@ pipeline {
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to true to run the stage')}
             }
 
-            when { expression { SKIP_STAGE == true}}
+            when { expression { env.SKIP_STAGE == true}}
             
             steps {
                 echo "Value of SKIP_STAGE = ${params.SKIP_STAGE}"
