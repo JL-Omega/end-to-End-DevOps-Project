@@ -15,10 +15,10 @@ pipeline {
             input {
                 message "Should we skip the stage?"
                 ok "Confirm"
-                parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: false, description: 'Set to true to skip the stage')}
+                parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to true to skip the stage')}
             }
 
-            when { expression { SKIP_STAGE == true}}
+            when { expression { SKIP_STAGE == false}}
             
             steps {
                 echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
