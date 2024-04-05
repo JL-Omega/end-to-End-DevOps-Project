@@ -1,9 +1,9 @@
 pipeline {
     agent any
     parameters {
-        booleanParam(name: 'SKIP_INSTALL_METALLB_STAGE', defaultValue: false, description: 'Set to true to run the stage')
-        booleanParam(name: 'SKIP_CREATE_IP_ADDRESS_POOL_STAGE', defaultValue: false, description: 'Set to true to run the stage')
-        booleanParam(name: 'SKIP_INSTALL_INGRESS_STAGE', defaultValue: false, description: 'Set to true to run the stage')
+        booleanParam(name: 'SKIP_INSTALL_METALLB_STAGE', defaultValue: true, description: 'Set to true to run the stage')
+        booleanParam(name: 'SKIP_CREATE_IP_ADDRESS_POOL_STAGE', defaultValue: true, description: 'Set to true to run the stage')
+        booleanParam(name: 'SKIP_INSTALL_INGRESS_STAGE', defaultValue: true, description: 'Set to true to run the stage')
     }
     environment { 
         IMAGE_NAME = "ic-webapp"
