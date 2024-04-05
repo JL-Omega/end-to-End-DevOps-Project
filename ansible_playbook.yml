@@ -4,32 +4,27 @@
 
   roles:
     - ping-hosts
-    # - install-packages
-    # - kubernetes-for-python
-    # - ic-group-namespace
-    # - ic-webapp-ingress
-    # - postgres-service
-    # - odoo-service
-    # - pgadmin-service
-    # - ic-webapp-service
-    # - postgres-deployment
-    # - pgadmin-deployment
-    # - ic-webapp-deployment
-    # - odoo-deployment
-    # # - ip_address_pool
+    - install-packages
+    - kubernetes-for-python
+    - install-metallb
+    - ip_address_pool
+    - install-ingress-nginx
+    - ic-group-namespace
+    - ic-webapp-ingress
+    - postgres-service
+    - odoo-service
+    - pgadmin-service
+    - ic-webapp-service
+    - postgres-deployment
+    - pgadmin-deployment
+    - ic-webapp-deployment
+    - odoo-deployment
+    
 
   tasks:
-    - name: Install Metallb By Manifest
-      ansible.builtin.command:
-        cmd: kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.4/config/manifests/metallb-native.yaml
-      tags:
-        - metallb
+    
 
-    - name: Install Ingress-Nginx Controller By Manifest
-      ansible.builtin.command:
-        cmd: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
-      tags:
-        - ingress
+   
        
     
 
