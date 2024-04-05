@@ -1,6 +1,6 @@
 pipeline {
     agent any
-   
+    parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to false to run the stage')}
     environment { 
         IMAGE_NAME = "ic-webapp"
         IMAGE_TAG = "1.0.0"
@@ -15,15 +15,11 @@ pipeline {
             input {
                 message "Should we skip the stage?"
                 ok "Confirm"
-                parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to false to run the stage')}
+                // parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to false to run the stage')}
             }
             
             steps {
-                script{
-                    if(SKIP_STAGE){echo "Value of SKIP_STAGE = ${SKIP_STAGE}"}
-                }
-                
-                
+                echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
                 // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
         }
