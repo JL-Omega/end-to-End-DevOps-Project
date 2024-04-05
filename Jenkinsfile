@@ -1,9 +1,9 @@
 pipeline {
     agent any
     parameters {
-        booleanParam(name: 'SKIP_INSTALL_METALLB_STAGE', defaultValue: true, description: 'Set to true to run the stage')
-        booleanParam(name: 'SKIP_CREATE_IP_ADDRESS_POOL_STAGE', defaultValue: true, description: 'Set to true to run the stage')
-        booleanParam(name: 'SKIP_INSTALL_INGRESS_STAGE', defaultValue: true, description: 'Set to true to run the stage')
+        booleanParam(name: 'SKIP_INSTALL_METALLB_STAGE', defaultValue: true, description: 'Set to false to run the stage')
+        booleanParam(name: 'SKIP_CREATE_IP_ADDRESS_POOL_STAGE', defaultValue: true, description: 'Set to false to run the stage')
+        booleanParam(name: 'SKIP_INSTALL_INGRESS_STAGE', defaultValue: true, description: 'Set to false to run the stage')
     }
     environment { 
         IMAGE_NAME = "ic-webapp"
@@ -17,7 +17,7 @@ pipeline {
 
         stage('Install Metallb By Manifest') {
             when {
-                expression { params.SKIP_INSTALL_METALLB_STAGE == true }
+                expression { params.SKIP_INSTALL_METALLB_STAGE == false }
             }
             steps {
                 sh "ansible-playbook ansible_playbook.yml --tags metallb"
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Create the ip_address_pool') {
             when {
-                expression { params.SKIP_CREATE_IP_ADDRESS_POOL_STAGE == true }
+                expression { params.SKIP_CREATE_IP_ADDRESS_POOL_STAGE == false }
             }
             steps {
                 sh """
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Install Ingress-Nginx Controller By Manifest') {
             when {
-                expression { params.SKIP_INSTALL_INGRESS_STAGE == true}
+                expression { params.SKIP_INSTALL_INGRESS_STAGE == false}
             }
             steps {
                 sh "ansible-playbook ansible_playbook.yml --tags ingress"
