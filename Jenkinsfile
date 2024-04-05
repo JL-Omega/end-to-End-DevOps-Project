@@ -18,12 +18,12 @@ pipeline {
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to true to run the stage')}
             }
 
-            when (BRANCH_NAME != 'master'){ echo "Value of SKIP_STAGE = ${SKIP_STAGE}" }
+            when { expression { return SKIP_STAGE}}
             
-            // steps {
-            //     echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
-            //     // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
-            // }
+            steps {
+                echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
+                // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
+            }
         }
 
         stage('Build the IC-GROUP webapp image') {
