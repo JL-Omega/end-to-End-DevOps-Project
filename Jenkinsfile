@@ -18,7 +18,7 @@ pipeline {
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to true to run the stage')}
             }
 
-            when (SKIP_STAGE == true){ echo "Value of SKIP_STAGE = ${SKIP_STAGE}" }
+            when (BRANCH_NAME != 'master'){ echo "Value of SKIP_STAGE = ${SKIP_STAGE}" }
             
             // steps {
             //     echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
