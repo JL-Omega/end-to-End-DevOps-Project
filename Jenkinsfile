@@ -17,8 +17,6 @@ pipeline {
                 ok "Confirm"
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to true to run the stage')}
             }
-
-            when { environment name: 'SKIP_STAGE', value: true }
             
             steps {
                 echo "Value of SKIP_STAGE = ${params.SKIP_STAGE}"
@@ -27,6 +25,7 @@ pipeline {
         }
 
         stage('Build the IC-GROUP webapp image') {
+            when { expression { params.SKIP_STAGE == true}}
             steps {
                 sh "docker build -t ${DOCKER_IMAGE_NAME} ."
             }
