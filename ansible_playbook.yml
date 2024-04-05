@@ -4,21 +4,25 @@
 
   roles:
     - ping-hosts
-    - install-packages
-    - kubernetes-for-python
-    - ic-group-namespace
-    - ic-webapp-ingress
-    - postgres-service
-    - odoo-service
-    - pgadmin-service
-    - ic-webapp-service
-    - postgres-deployment
-    - pgadmin-deployment
-    - ic-webapp-deployment
-    - odoo-deployment
-    # - ip_address_pool
+    # - install-packages
+    # - kubernetes-for-python
+    # - ic-group-namespace
+    # - ic-webapp-ingress
+    # - postgres-service
+    # - odoo-service
+    # - pgadmin-service
+    # - ic-webapp-service
+    # - postgres-deployment
+    # - pgadmin-deployment
+    # - ic-webapp-deployment
+    # - odoo-deployment
+    # # - ip_address_pool
 
-    
+  tasks:
+    - name: Install Metallb
+      ansible.builtin.command:
+        cmd: kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.4/config/manifests/metallb-native.yaml
+
     
 
    
