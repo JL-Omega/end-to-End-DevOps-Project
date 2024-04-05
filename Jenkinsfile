@@ -25,7 +25,7 @@ pipeline {
         }
 
         stage('Build the IC-GROUP webapp image') {
-            when { expression { params.SKIP_STAGE == true}}
+            when { expression { SKIP_STAGE == true}}
             steps {
                 sh "docker build -t ${DOCKER_IMAGE_NAME} ."
             }
