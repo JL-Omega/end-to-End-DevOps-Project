@@ -19,13 +19,13 @@ pipeline {
             }
             
             steps {
+                when { expression { SKIP_STAGE == true}}
                 echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
                 // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
         }
 
         stage('Build the IC-GROUP webapp image') {
-            when { expression { SKIP_STAGE == true}}
             steps {
                 sh "docker build -t ${DOCKER_IMAGE_NAME} ."
             }
