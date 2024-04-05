@@ -17,12 +17,13 @@ pipeline {
                 ok "Confirm"
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to true to run the stage')}
             }
+
+            when (SKIP_STAGE == true){ echo "Value of SKIP_STAGE = ${SKIP_STAGE}" }
             
-            steps {
-                when { expression { SKIP_STAGE == true}}
-                echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
-                // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
-            }
+            // steps {
+            //     echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
+            //     // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
+            // }
         }
 
         stage('Build the IC-GROUP webapp image') {
