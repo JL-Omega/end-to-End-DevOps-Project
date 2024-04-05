@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to false to run the stage')}
+    parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: false, description: 'Set to false to run the stage')}
     environment { 
         IMAGE_NAME = "ic-webapp"
         IMAGE_TAG = "1.0.0"
