@@ -11,6 +11,12 @@ pipeline {
 
     stages {
 
+        stage('Install the Metallb') {
+            steps {
+                sh "kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.9/config/manifests/metallb-native.yaml"
+            }
+        }
+
         stage('Create the ip_address_pool') {
             input {
                 message "Should we skip the stage?"
@@ -18,7 +24,9 @@ pipeline {
                 parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to true to skip the stage')}
             }
 
-            when { expression { SKIP_STAGE == false}}
+            when { 
+                expression { SKIP_STAGE == false}
+            }
             
             steps {
                 echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
