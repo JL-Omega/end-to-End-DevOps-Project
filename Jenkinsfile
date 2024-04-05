@@ -132,7 +132,6 @@ pipeline {
             steps {
                 sh "ansible-playbook ansible_playbook.yml --tags odoo-deployment"
             }
-        }
-       
+        } 
     }
 }
