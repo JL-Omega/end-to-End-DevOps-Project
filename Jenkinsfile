@@ -1,6 +1,10 @@
 pipeline {
     agent any
-    // parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: false, description: 'Set to false to run the stage')}
+    parameters {
+        booleanParam(name: 'SKIP_INSTALL_METALLB_STAGE', defaultValue: false, description: 'Set to true to run the stage')
+        booleanParam(name: 'SKIP_CREATE_IP_ADDRESS_POOL_STAGE', defaultValue: false, description: 'Set to true to run the stage')
+        booleanParam(name: 'SKIP_INSTALL_INGRESS_STAGE', defaultValue: false, description: 'Set to true to run the stage')
+    }
     environment { 
         IMAGE_NAME = "ic-webapp"
         IMAGE_TAG = "1.0.0"
@@ -11,26 +15,33 @@ pipeline {
 
     stages {
 
-        stage('Install the Metallb') {
+        stage('Install Metallb By Manifest') {
+            when {
+                expression { params.SKIP_INSTALL_METALLB_STAGE == true }
+            }
             steps {
-                sh "kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.9/config/manifests/metallb-native.yaml"
+                sh "ansible-playbook ansible_playbook.yml --tags metallb"
             }
         }
 
         stage('Create the ip_address_pool') {
-            input {
-                message "Should we skip the stage?"
-                ok "Confirm"
-                parameters {booleanParam(name: 'SKIP_STAGE', defaultValue: true, description: 'Set to true to skip the stage')}
+            when {
+                expression { params.SKIP_CREATE_IP_ADDRESS_POOL_STAGE == true }
             }
-
-            when { 
-                expression { SKIP_STAGE == false}
-            }
-            
             steps {
-                echo "Value of SKIP_STAGE = ${SKIP_STAGE}"
-                // sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
+                sh """
+                sleep 10
+                ansible-playbook ansible_playbook.yml --tags ip_address_pool
+                """
+            }
+        }
+
+        stage('Install Ingress-Nginx Controller By Manifest') {
+            when {
+                expression { params.SKIP_INSTALL_INGRESS_STAGE == true}
+            }
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags ingress"
             }
         }
 
