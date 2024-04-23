@@ -49,6 +49,35 @@ To get started with the IC-Group web application deployment, follow these steps:
 4. Customize Jenkins pipeline parameters as needed.
 5. Run the Jenkins pipeline to initiate the deployment process.
 
+## Usage
+
+### Configure Ansible Hosts and Group Variables:
+1. Open the `ansible_hosts.yml` file.
+2. Update the host configurations with the appropriate IP addresses and authentication credentials for the target environment (development or production).
+3. Open the `group_vars` directory.
+4. Update the `dev.yml` or `prod.yml` file with environment-specific configurations such as Ansible user credentials, Python interpreter path, etc.
+
+### Customize Jenkins Pipeline Parameters:
+1. Open the Jenkinsfile in the repository.
+2. Navigate to the section where pipeline parameters are defined.
+3. Modify the parameters as needed, such as DockerHub credentials, environment variables, etc.
+
+### Run the Jenkins Pipeline:
+1. Open your Jenkins server dashboard.
+2. Navigate to the project that contains the Jenkins pipeline for the IC-Group web application deployment.
+3. Trigger the pipeline manually or set up a schedule for automatic triggering.
+
+### Monitor the Jenkins Console:
+1. Once the pipeline is triggered, monitor the Jenkins console output for the progress of deployment tasks.
+2. Pay attention to any errors or warnings that may occur during the deployment process.
+3. Use the Jenkins logs to troubleshoot and address any issues that arise.
+
+### Verify Successful Deployment:
+1. After the Jenkins pipeline completes successfully, access the provided endpoints for the IC-Group web application.
+2. Verify that the application is running as expected and that all functionalities are accessible.
+3. Perform any necessary testing or validation to ensure the deployment is successful.
+
+
 ## Components
 
 ### Dockerfile
@@ -70,12 +99,6 @@ Group variables specify environment-specific configurations for development and 
 ### Jenkins Pipeline
 
 The Jenkins pipeline automates the deployment process, including building Docker images, testing, releasing to DockerHub, and orchestrating Ansible tasks.
-
-## Usage
-
-1. Configure Ansible hosts and group variables according to the target environment.
-2. Customize Jenkins pipeline parameters as needed.
-3. Run the Jenkins pipeline to initiate the deployment process.
 
 ## Contributing
 
