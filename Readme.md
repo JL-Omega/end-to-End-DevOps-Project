@@ -25,7 +25,6 @@ The IC-Group web application is a Flask-based web application designed to serve 
 4. **Security and Accessibility:** Users can securely access and manage PostgreSQL databases through pgAdmin, ensuring data integrity and accessibility within the IC-Group ecosystem.
 
 
-
 ## Prerequisites
 
 - Docker installed
