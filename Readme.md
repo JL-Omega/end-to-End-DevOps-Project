@@ -6,6 +6,16 @@
 
 This repository contains scripts and configurations for deploying the IC-Group web application using Docker, Ansible, and Jenkins. The deployment process involves building Docker images, configuring Kubernetes clusters, and orchestrating deployment tasks through Jenkins pipelines.
 
+## Prerequisites
+
+- Docker installed
+- Ansible installed
+- Jenkins server set up
+- Kubernetes cluster running on bare-metal servers.
+- Ingress controller deployed in the cluster (In this case, Nginx Ingress controller is used).
+- MetalLB installed in the cluster for Load Balancing.
+- NFS server for persistent storage.
+
 ## Components
 
 ### Dockerfile
@@ -33,13 +43,6 @@ The Jenkins pipeline automates the deployment process, including building Docker
 1. Configure Ansible hosts and group variables according to the target environment.
 2. Customize Jenkins pipeline parameters as needed.
 3. Run the Jenkins pipeline to initiate the deployment process.
-
-## Prerequisites
-
-- Docker installed
-- Kubernetes cluster configured
-- Ansible installed
-- Jenkins server set up
 
 ## Contributing
 
