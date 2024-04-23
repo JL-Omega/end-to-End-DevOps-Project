@@ -1,6 +1,7 @@
 ﻿<h1 align="center">
   IC-Group WebApp Deployment on k8s Bare-Metal <br>(NGINX Ingress Controller + MetalLB)
 </h1>
+![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/d974c453-5d17-4a27-bbf7-d7252e1dd719)
 
 ## Overview
 
