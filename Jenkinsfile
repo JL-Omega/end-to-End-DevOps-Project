@@ -5,6 +5,7 @@ pipeline {
         booleanParam(name: 'SKIP_CREATE_IP_ADDRESS_POOL_STAGE', defaultValue: true, description: 'Set to false to run the stage')
         booleanParam(name: 'SKIP_INSTALL_INGRESS_STAGE', defaultValue: true, description: 'Set to false to run the stage')
     }
+    
     environment { 
         IMAGE_NAME = "ic-webapp"
         IMAGE_TAG = "1.0.0"
