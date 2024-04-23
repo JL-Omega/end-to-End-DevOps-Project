@@ -36,6 +36,19 @@ The IC-Group web application is a Flask-based web application designed to serve 
 - MetalLB installed in the cluster for Load Balancing.
 - NFS server for persistent storage.
 
+## Getting Started
+
+To get started with the IC-Group web application deployment, follow these steps:
+
+1. Clone this repository to your local machine:
+ ```bash
+   git clone https://github.com/JL-Omega/end-to-End-DevOps-Project.git
+   ```
+2. Ensure all prerequisites are met, including Docker, Ansible, Jenkins, and Kubernetes cluster setup.
+3. Configure Ansible hosts and group variables according to the target environment.
+4. Customize Jenkins pipeline parameters as needed.
+5. Run the Jenkins pipeline to initiate the deployment process.
+
 ## Components
 
 ### Dockerfile
