@@ -81,6 +81,17 @@ If the pipeline is successful, the result should resemble the screenshot below:
 
 ![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/1b745d15-0c9e-4066-92fd-0ce9e6ec2010)
 
+![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/272eabd5-c475-426e-bcb5-9fec85c09e8e)
+
+![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/dabfd9b6-6baa-4dbf-8dde-891e78a659aa)
+
+![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/5e2b6d2d-d2f3-45d2-866c-58afe7a14fd7)
+
+![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/a820d77d-a4fd-4d66-987f-60343906d817)
+
+![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/2a815995-ae4b-4203-922d-8dacab416e27)
+
+
 
 
 ## Components
