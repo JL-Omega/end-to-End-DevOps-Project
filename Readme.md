@@ -1,5 +1,5 @@
 ﻿<h1 align="center">
-  IC-Group Web Application Deployment on k8s Bare-Metal <br>(NGINX Ingress Controller + MetalLB)
+  IC-Group WebApp Deployment on k8s Bare-Metal <br>(NGINX Ingress Controller + MetalLB)
 </h1>
 
 ## Overview
