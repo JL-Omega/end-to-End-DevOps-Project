@@ -66,7 +66,7 @@ To get started with the IC-Group web application deployment, follow these steps:
 1. Open your Jenkins server dashboard.
 2. Navigate to the project that contains the Jenkins pipeline for the IC-Group web application deployment.
 3. Trigger the pipeline manually or set up a schedule for automatic triggering.<br><br>
-If the pipeline is successful, it will look like on the screenshot below:<br>
+If the pipeline is successful, it will look like on the screenshot below:
 ![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/b1e629f3-dce9-45c8-95ab-cd85b5b75161)
 
 ### Monitor the Jenkins Console:
@@ -75,9 +75,13 @@ If the pipeline is successful, it will look like on the screenshot below:<br>
 3. Use the Jenkins logs to troubleshoot and address any issues that arise.
 
 ### Verify Successful Deployment:
-1. After the Jenkins pipeline completes successfully, access the provided endpoints for the IC-Group web application.
-2. Verify that the application is running as expected and that all functionalities are accessible.
-3. Perform any necessary testing or validation to ensure the deployment is successful.
+1. After the Jenkins pipeline completes successfully, access the IC-Group web application by the host provided in `ic-webapp-ingress`, in this case `ic-group.fr`.
+2. Verify that the application is running as expected and that all functionalities are accessible.<br><br>
+
+If the pipeline is successful, the result should resemble the screenshot below:
+
+![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/1b745d15-0c9e-4066-92fd-0ce9e6ec2010)
+
 
 
 ## Components
