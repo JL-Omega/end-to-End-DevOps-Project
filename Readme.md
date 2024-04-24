@@ -75,27 +75,40 @@ If the pipeline is successful, it will look like on the screenshot below:
 
 ### Verify Successful Deployment:
 1. After the Jenkins pipeline completes successfully, access the IC-Group web application by the host provided in `ic-webapp-ingress`, in this case `ic-group.fr`.
-2. Verify that the application is running as expected and that all functionalities are accessible.<br><br>
+2. Verify that the application is running as expected and that all functionalities are accessible.
 
-If the pipeline is successful, the result should resemble the screenshot below:
+If the deployment is successful, the result should resemble the screenshots below:
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/1b745d15-0c9e-4066-92fd-0ce9e6ec2010)
+#### Odoo Integration:
+- By clicking on the Odoo logo, Odoo connects to PostgreSQL and prompts you to create a database as shown below:
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/272eabd5-c475-426e-bcb5-9fec85c09e8e)
+![Odoo Database Creation](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/272eabd5-c475-426e-bcb5-9fec85c09e8e)
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/f2568d07-0af4-4c3c-a023-b5236697d16f)
+- Once the database is successfully created, you will be redirected to the login page where you can use the email and password provided earlier:
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/070f01a8-5cfd-4378-a168-db3dec20b7a2)
+![Odoo Login Page](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/f2568d07-0af4-4c3c-a023-b5236697d16f)
 
+- After successful login, you will be connected to your Odoo platform and can access all services:
 
+![Odoo Dashboard](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/070f01a8-5cfd-4378-a168-db3dec20b7a2)
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/dabfd9b6-6baa-4dbf-8dde-891e78a659aa)
+#### pgAdmin Integration:
+- By clicking on the pgAdmin logo, you will be prompted to login using the email and password provided in the pgAdmin deployment manifest:
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/5e2b6d2d-d2f3-45d2-866c-58afe7a14fd7)
+![pgAdmin Login Page](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/dabfd9b6-6baa-4dbf-8dde-891e78a659aa)
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/a820d77d-a4fd-4d66-987f-60343906d817)
+- After successful login, you will be connected to your pgAdmin dashboard where you can connect to PostgreSQL by creating a server:
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/074a41ca-c3c0-4caa-8d27-065cdcd34d26)
+![pgAdmin Dashboard](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/5e2b6d2d-d2f3-45d2-866c-58afe7a14fd7)
+
+- Create a server to connect to PostgreSQL. In the "Host name" field, indicate the PostgreSQL service name, and in the "Username" and "Password" fields, indicate the values of `POSTGRES_USER` and `POSTGRES_PASSWORD` defined in the postgres-deployment manifest. After clicking on Save, you will be connected to PostgreSQL:
+
+![pgAdmin Server Creation](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/a820d77d-a4fd-4d66-987f-60343906d817)
+
+- Now, you are connected to PostgreSQL and can see your Odoo database and manage it:
+
+![pgAdmin PostgreSQL Connection](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/7259da63-0993-4544-9cbc-cd7d1e7530c6)
+
 
 
 
