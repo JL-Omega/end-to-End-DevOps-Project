@@ -95,8 +95,7 @@ If the pipeline is successful, the result should resemble the screenshot below:
 
 ![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/a820d77d-a4fd-4d66-987f-60343906d817)
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/2a815995-ae4b-4203-922d-8dacab416e27)
-
+![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/074a41ca-c3c0-4caa-8d27-065cdcd34d26)
 
 
 
