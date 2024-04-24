@@ -6,7 +6,7 @@
 
 ## Overview
 
-This repository contains scripts and configurations for deploying the IC-Group web application using Docker, Ansible, and Jenkins. The deployment process involves building Docker images, configuring Kubernetes clusters, and orchestrating deployment tasks through Jenkins pipelines.
+This repository contains scripts and configurations for deploying the IC-Group web application using Docker, Ansible, Kubernetes and Jenkins. The deployment process involves building Docker images, configuring Kubernetes clusters, and orchestrating deployment tasks through Jenkins pipelines.
 
 The IC-Group web application is a Flask-based web application designed to serve as a central hub for managing Odoo and pgAdmin within the IC-Group ecosystem, providing users with a seamless experience to interact with these essential tools.
 
