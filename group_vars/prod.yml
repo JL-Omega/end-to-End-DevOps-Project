@@ -1,4 +1,4 @@
 ansible_user: cheche
-ansible_password: 1991
+ansible_password: "{{vault_group_prod_password}}"
 ansible_become: true
-ansible_become_password: 1991
+ansible_become_password: "{{vault_group_prod_password}}"
