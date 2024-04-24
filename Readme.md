@@ -33,7 +33,13 @@ The IC-Group web application is a Flask-based web application designed to serve 
 - Kubernetes cluster running on bare-metal servers.
 - Ingress controller deployed in the cluster (In this case, Nginx Ingress controller is used).
 - MetalLB installed in the cluster for Load Balancing.
-- NFS server for persistent storage.
+
+### Important Note:
+
+All passwords and sensitive credentials used in the deployment process are stored in the file `files/secrets/credentials.yml`. For security reasons, this file is encrypted using Ansible Vault to protect sensitive information.
+
+Before running any deployment tasks, ensure that you have decrypted the `credentials.yml` file using Ansible Vault commands. Additionally, exercise caution when handling sensitive information and follow best practices for credential management and security.
+
 
 ## Getting Started
 
@@ -68,8 +74,7 @@ To get started with the IC-Group web application deployment, follow these steps:
 
 If the pipeline is successful, it will look like the screenshot below:
 
-![Successful Pipeline](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/b1e629f3-dce9-45c8-95ab-cd85b5b75161)
-
+![Successful Pipeline](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/ea5d1cca-4f6e-4e8b-9561-f75532e24687)
 
 ### Monitor the Jenkins Console:
 1. Once the pipeline is triggered, monitor the Jenkins console output for the progress of deployment tasks.
