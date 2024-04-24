@@ -12,6 +12,7 @@ pipeline {
         DOCKER_IMAGE_NAME = "${IMAGE_NAME}:${IMAGE_TAG}"
         DOCKERHUB_USERNAME = credentials("docker_hub_username")
         DOCKERHUB_PASSWORD =credentials("docker_hub_password")
+        VAULT_PASSWORD_FILE = credentials("vault-pass-file")
     }
 
     stages {
@@ -44,19 +45,19 @@ pipeline {
 
         stage('Ping the ansible hosts') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags ping-hosts"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags ping-hosts"
             }
         }
 
         stage('Install packages') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags install-packages"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags install-packages"
             }
         }
 
         stage('Install kubernetes for python') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags kubernetes-for-python"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags kubernetes-for-python"
             }
         }
 
@@ -66,7 +67,7 @@ pipeline {
             }
             steps {
                 sh """
-                ansible-playbook ansible_playbook.yml --tags metallb
+                ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags metallb
                 sleep 120
                 """
             }
@@ -77,7 +78,7 @@ pipeline {
                 expression { params.SKIP_CREATE_IP_ADDRESS_POOL_STAGE == false }
             }
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags ip_address_pool"
             }
         }
 
@@ -87,7 +88,7 @@ pipeline {
             }
             steps {
                 sh """
-                ansible-playbook ansible_playbook.yml --tags ingress
+                ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags ingress
                 sleep 120
                 """
             }
@@ -95,67 +96,67 @@ pipeline {
 
         stage('Create the IC-GROUP webapp namespace') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags ic-group-namespace"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags ic-group-namespace"
             }
         }
 
         stage('Create the ic-group-secret') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags ic-group-secret"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags ic-group-secret"
             }
         }
 
         stage('Create the IC-GROUP ingress') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags ic-webapp-ingress"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags ic-webapp-ingress"
             }
         }
 
         stage('Create the postgres service') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags postgres-service"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags postgres-service"
             }
         }
 
         stage('Create the odoo service') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags odoo-service"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags odoo-service"
             }
         }
 
         stage('Create the pgadmin service') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags pgadmin-service"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags pgadmin-service"
             }
         }
 
         stage('Create the ic-webapp service') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags ic-webapp-service"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags ic-webapp-service"
             }
         }
 
         stage('Create the postgres deployment') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags postgres-deployment"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags postgres-deployment"
             }
         }
 
         stage('Create the pgadmin deployment') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags pgadmin-deployment"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags pgadmin-deployment"
             }
         }
 
         stage('Create the ic webapp deployment') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags ic-webapp-deployment"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags ic-webapp-deployment"
             }
         }
 
         stage('Create the odoo deployment') {
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags odoo-deployment"
+                sh "ansible-playbook --vault-password-file $VAULT_PASSWORD_FILE ansible_playbook.yml --tags odoo-deployment"
             }
         } 
     }
