@@ -65,7 +65,10 @@ pipeline {
                 expression { params.SKIP_INSTALL_METALLB_STAGE == false }
             }
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags metallb"
+                sh """
+                ansible-playbook ansible_playbook.yml --tags metallb
+                sleep 120
+                """
             }
         }
 
@@ -74,10 +77,7 @@ pipeline {
                 expression { params.SKIP_CREATE_IP_ADDRESS_POOL_STAGE == false }
             }
             steps {
-                sh """
-                sleep 10
-                ansible-playbook ansible_playbook.yml --tags ip_address_pool
-                """
+                sh "ansible-playbook ansible_playbook.yml --tags ip_address_pool"
             }
         }
 
@@ -86,7 +86,10 @@ pipeline {
                 expression { params.SKIP_INSTALL_INGRESS_STAGE == false}
             }
             steps {
-                sh "ansible-playbook ansible_playbook.yml --tags ingress"
+                sh """
+                ansible-playbook ansible_playbook.yml --tags ingress
+                sleep 120
+                """
             }
         }
 
