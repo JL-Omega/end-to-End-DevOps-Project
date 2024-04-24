@@ -88,7 +88,7 @@ If the deployment is successful, the result should resemble the screenshot below
 #### Odoo Integration:
 - By clicking on the Odoo logo, Odoo connects to PostgreSQL and prompts you to create a database as shown below:
 
-![Odoo Database Creation](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/272eabd5-c475-426e-bcb5-9fec85c09e8e)
+![Odoo Database Creation](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/5cf14789-7662-48d1-b15f-3446eb847469)
 
 - Once the database is successfully created, you will be redirected to the login page where you can use the email and password provided earlier:
 
