@@ -142,6 +142,11 @@ The Jenkins pipeline automates the deployment process, including building Docker
 
 Contributions are welcome! Feel free to submit issues or pull requests for any improvements or fixes.
 
+## Maintainer
+
+This project is maintained by Jean-Luc Mpande. You can reach out to the maintainer via email at mpandejl1@gmail.com or [LinkedIn](https://www.linkedin.com/in/jean-luc-mpande-75981a23b/).
+
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
