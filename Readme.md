@@ -2,7 +2,7 @@
   IC-Group WebApp Deployment on k8s Bare-Metal <br>(NGINX Ingress Controller + MetalLB)
 </h1>
 
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/d974c453-5d17-4a27-bbf7-d7252e1dd719)
+![IC-Group WebApp](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/d974c453-5d17-4a27-bbf7-d7252e1dd719)
 
 ## Overview
 
@@ -65,8 +65,11 @@ To get started with the IC-Group web application deployment, follow these steps:
 1. Open your Jenkins server dashboard.
 2. Navigate to the project that contains the Jenkins pipeline for the IC-Group web application deployment.
 3. Trigger the pipeline manually or set up a schedule for automatic triggering.<br><br>
-If the pipeline is successful, it will look like on the screenshot below:
-![image](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/b1e629f3-dce9-45c8-95ab-cd85b5b75161)
+
+If the pipeline is successful, it will look like the screenshot below:
+
+![Successful Pipeline](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/b1e629f3-dce9-45c8-95ab-cd85b5b75161)
+
 
 ### Monitor the Jenkins Console:
 1. Once the pipeline is triggered, monitor the Jenkins console output for the progress of deployment tasks.
@@ -77,7 +80,10 @@ If the pipeline is successful, it will look like on the screenshot below:
 1. After the Jenkins pipeline completes successfully, access the IC-Group web application by the host provided in `ic-webapp-ingress`, in this case `ic-group.fr`.
 2. Verify that the application is running as expected and that all functionalities are accessible.
 
-If the deployment is successful, the result should resemble the screenshots below:
+If the deployment is successful, the result should resemble the screenshot below:
+
+![Successful Deployment](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/1b745d15-0c9e-4066-92fd-0ce9e6ec2010)
+
 
 #### Odoo Integration:
 - By clicking on the Odoo logo, Odoo connects to PostgreSQL and prompts you to create a database as shown below:
