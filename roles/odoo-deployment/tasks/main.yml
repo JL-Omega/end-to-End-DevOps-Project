@@ -30,7 +30,10 @@
                 - name: USER
                   value: odoo
                 - name: PASSWORD
-                  value: myodoo
+                  valueFrom:
+                    secretKeyRef:
+                      name: ic-group-secret
+                      key: database_password
               resources:
                 limits:
                   memory: "256Mi"

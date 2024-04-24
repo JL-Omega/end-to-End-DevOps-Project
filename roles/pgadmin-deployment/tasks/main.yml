@@ -28,7 +28,10 @@
                 - name: PGADMIN_DEFAULT_EMAIL
                   value: "mpandejl1@gmail.com"
                 - name: PGADMIN_DEFAULT_PASSWORD
-                  value: "1234"
+                  valueFrom:
+                    secretKeyRef:
+                      name: ic-group-secret
+                      key: pgadmin_password
               resources:
                 limits:
                   memory: "256Mi"

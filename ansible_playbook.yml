@@ -1,6 +1,8 @@
 ---
 - name: Deploy IC-Group webapp on kubernetes
   hosts: dev
+  vars_files:
+    - files/secrets/credentials.yml
 
   roles:
     - ping-hosts
@@ -10,6 +12,7 @@
     - ip_address_pool
     - install-ingress-nginx
     - ic-group-namespace
+    - ic-group-secret
     - ic-webapp-ingress
     - postgres-service
     - odoo-service

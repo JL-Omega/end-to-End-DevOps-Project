@@ -1,0 +1,18 @@
+---
+# tasks file for ic-group-secret
+
+- name: Create the ic-group-secret
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: ic-group-secret
+        namespace: default
+      type: Opaque 
+      stringData:
+        database_password: "{{vault_database_password}}"
+        pgadmin_password: "{{vault_pgadmin_password}}"
+  tags:
+    - ic-group-secret

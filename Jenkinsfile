@@ -99,6 +99,12 @@ pipeline {
             }
         }
 
+        stage('Create the ic-group-secret') {
+            steps {
+                sh "ansible-playbook ansible_playbook.yml --tags ic-group-secret"
+            }
+        }
+
         stage('Create the IC-GROUP ingress') {
             steps {
                 sh "ansible-playbook ansible_playbook.yml --tags ic-webapp-ingress"
