@@ -101,7 +101,7 @@ If the deployment is successful, the result should resemble the screenshot below
 #### pgAdmin Integration:
 - By clicking on the pgAdmin logo, you will be prompted to login using the email and password provided in the pgAdmin deployment manifest:
 
-![pgAdmin Login Page](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/dabfd9b6-6baa-4dbf-8dde-891e78a659aa)
+![pgAdmin Login Page](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/bd3e05d2-c885-43ea-b194-675a9ec0b03b)
 
 - After successful login, you will be connected to your pgAdmin dashboard where you can connect to PostgreSQL by creating a server:
 
@@ -114,8 +114,6 @@ If the deployment is successful, the result should resemble the screenshot below
 - Now, you are connected to PostgreSQL and can see your Odoo database and manage it:
 
 ![pgAdmin PostgreSQL Connection](https://github.com/JL-Omega/end-to-End-DevOps-Project/assets/96908472/7259da63-0993-4544-9cbc-cd7d1e7530c6)
-
-
 
 
 ## Components
